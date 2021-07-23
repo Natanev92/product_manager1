@@ -11,7 +11,9 @@ const CreateProduct = props => {
         price: 0,
         description: ""
     });
+
     const [validState, setValidState] = useState({})
+
     // Submit handler for the form
     const handleSubmit = event => {
         event.preventDefault();
@@ -61,7 +63,9 @@ const CreateProduct = props => {
                 {(validState.description) ? <p>{validState.description}</p> : null}
             </p>
             <button type="submit">Create</button>
+            <h1>All Products </h1>
         </form>
+        
     )
 }
 

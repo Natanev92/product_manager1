@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CreateProduct from '../components/CreateProduct';
+import ProductList from '../components/ProductList';
 
-export default () => {
-    const [ message, setMessage ] = useState('Loading...');
+const Main = props => {
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/')
-            .then(res => setMessage(res.data.message))
-            .catch(err => console.log(err))
-    }, []);
+    const [submitState, setSubmitState] = useState(false);
 
     return (
         <div>
-            <CreateProduct/>
+            <CreateProduct submitState={submitState} setSubmitState={setSubmitState}/>
+            <ProductList submitState={submitState} setSubmitState={setSubmitState}/>
         </div>
     )
 }
+
+export default Main;
